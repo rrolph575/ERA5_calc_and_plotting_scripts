@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 
+"""This script downloads 100m u and v wind components from ERA5 nearby a specific point. It can be modified as necessary for different variables and time frames. To get the required packages this script needs to run, see the Climate Data Store at https://cds.climate.copernicus.eu/api-how-to 
+
+Becca Rolph rebecca.rolph@nrel.gov
+18 May 2022
+
+"""
+
 import cdsapi
 import numpy as np
 import pandas as pd
@@ -12,7 +19,7 @@ lat = 36.06918
 lon = -75.1064  
 
 # Specify the years you want the data extracted
-year_start = 1979 
+year_start = 2019 
 year_end =  2022 # Inclusive
 
 # Specify months
@@ -25,6 +32,8 @@ c = cdsapi.Client()
 # def download_ERA5(year_start, year_end, month_start, month_end, sitename, lat, lon):
 
 # Convert inputs into the format needed for cdsapi
+years = np.arange(year_start, year_end+1)
+years_str = ['{0}'.format(year) for year in years]
 months = np.arange(month_start,month_end+1)
 months_str = ['{0}'.format(month).zfill(2) for month in months]
 days = np.arange(1,32)
@@ -38,7 +47,7 @@ south_lat = lat - ERA5_grid_resolution/2
 west_lon = lon - ERA5_grid_resolution/2
 east_lon = lon + ERA5_grid_resolution/2
 
-grb_out_filename = 'data/' + sitename + '.grib'
+grb_out_filename = 'data/grbfiles/' + sitename + '.grib'
 
 # Call cdsapi
 c.retrieve(
@@ -50,7 +59,7 @@ c.retrieve(
              '100m_u_component_of_wind',
              '100m_v_component_of_wind',
           ],
-         'year': np.arange(year_start, year_end + 1),
+         'year': years_str,
          'month': months_str,
          'day': days_str,
          'time': hours_str,
