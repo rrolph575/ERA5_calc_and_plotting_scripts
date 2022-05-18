@@ -4,6 +4,12 @@
 ### (ERA5). For example, you can use scripts in this repo to calculate and plot seasonal means and trends of selected 
 ### climate variables or create a sea ice mask based on user-specified sea ice concentration data.
 
+### Download ERA5 data
+download_RA.py
+
+### Calculates wind speeds and directions, plots wind rose from ERA5 data
+plot_windrose.py  (imports/uses windrose.py module)
+
 
 ### Animations of example output (sea ice concentration) are given in the folder 'sea_ice_concentration'
 

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
-"""This script downloads 100m u and v wind components from ERA5 nearby a specific point. It can be modified as necessary for different variables and time frames. To get the required packages this script needs to run, see the Climate Data Store at https://cds.climate.copernicus.eu/api-how-to 
+""" This script downloads 100m u and v wind components from ERA5 nearby a specific point. It can be modified as necessary for 
+different variables and time frames. To get the required packages this script needs to run, see the Climate Data Store at 
+https://cds.climate.copernicus.eu/api-how-to
 
 Becca Rolph rebecca.rolph@nrel.gov
 18 May 2022
