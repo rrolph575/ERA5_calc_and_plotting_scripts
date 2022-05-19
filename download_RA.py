@@ -25,9 +25,9 @@ from datetime import time
 #lat = 40.40
 #lon = -73.52
 
-sitename = 'CVOW_Commercial_a'
-lat = 36.80
-lon = -75.37
+#sitename = 'CVOW_Commercial_a'
+#lat = 36.80
+#lon = -75.37
 
 # Specify the years you want the data extracted
 year_start = 2019 
