@@ -12,22 +12,34 @@ Becca Rolph rebecca.rolph@nrel.gov
 import numpy as np
 import matplotlib.pyplot as plt
 import xarray as xr
+import os
 from os.path import exists
 from windrose import WindroseAxes
 
-
-convert_to_nc = False# 
+FigDir = 'ERA5_plots/windroses/'
+ 
 # Specify site/filename to create windrose from
-sitename = 'Kitty_hawk_a'
-lat = 36.06918
-lon = -75.1064  
+
+#sitename = 'Kitty_hawk_a'
+#lat = 36.06918
+#lon = -75.1064  
+
+#sitename = 'Empire_wind'
+#lat = 40.40
+#lon = -73.52
+
+sitename = 'CVOW_Commercial_a'
+lat = 36.80
+lon = -75.37
+
 
 wind_data_ifile_grb = 'data/grbfiles/' + sitename + '.grib'
 wind_data_ifile_nc = 'data/ncfiles/' + sitename + '.nc'
 
 if exists(wind_data_ifile_nc) == False:
     # Convert grb to ncfile
-    wind_data_ifile_grb.to_netcdf()
+    ds = xr.open_dataset(wind_data_ifile_grb, engine='cfgrib')
+    ds.to_netcdf(wind_data_ifile_nc)
 
 # Read dataset
 ds = xr.open_dataset(wind_data_ifile_nc)
@@ -75,4 +87,5 @@ ax1.set_title(sitename)
 
 ax1.legend(bbox_to_anchor=(1.2 , -0.1))
 plt.tight_layout()
+fig.savefig(os.path.join(FigDir + sitename + '_windrose.png'), bbox_inches='tight')
 plt.show()

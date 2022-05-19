@@ -21,9 +21,13 @@ from datetime import time
 #lat = 36.06918
 #lon = -75.1064  
 
-sitename = 'Empire_wind'
-lat = 40.40
-lon = -73.52
+#sitename = 'Empire_wind'
+#lat = 40.40
+#lon = -73.52
+
+sitename = 'CVOW_Commercial_a'
+lat = 36.80
+lon = -75.37
 
 # Specify the years you want the data extracted
 year_start = 2019 
@@ -64,6 +68,7 @@ def download_ERA5(year_start, year_end, month_start, month_end, sitename, lat, l
              'variable': [
                  '100m_u_component_of_wind',
                  '100m_v_component_of_wind',
+                 'significant_height_of_combined_wind_waves_and_swell',
               ],
              'year': years_str,
              'month': months_str,
