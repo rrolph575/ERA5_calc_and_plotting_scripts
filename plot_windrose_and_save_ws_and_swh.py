@@ -32,9 +32,13 @@ FigDir = 'ERA5_plots/windroses/'
 #lat = 40.40
 #lon = -73.52
 
-sitename = 'CVOW_Commercial_a'
-lat = 36.80
-lon = -75.37
+#sitename = 'CVOW_Commercial_a'
+#lat = 36.80
+#lon = -75.37
+
+sitename = 'Mayflower'
+lat = 40.78
+lon = -70.69
 
 
 ## Specify ifile/ofile names
@@ -96,13 +100,12 @@ wind_speed_bins = np.histogram(wind_speed, 5)[1]
 fig = plt.figure()
 ax1 = fig.add_subplot(111, projection='windrose')
 ax1.bar(wind_dir, wind_speed, normed=True, opening=0.8, edgecolor='white', bins=wind_speed_bins)
-ax1.set_title(sitename)
+#ax1.set_title(sitename)
 
 ax1.legend(bbox_to_anchor=(1.2 , -0.1))
 plt.tight_layout()
 fig.savefig(os.path.join(FigDir + sitename + '_windrose.png'), bbox_inches='tight')
 plt.show()
-
 
 
 ## Save data to csv

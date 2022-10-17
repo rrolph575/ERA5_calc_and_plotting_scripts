@@ -29,9 +29,17 @@ from datetime import time
 #lat = 36.80
 #lon = -75.37
 
+#sitename = 'Mayflower'
+#lat = 40.78
+#lon = -70.69
+
+sitename = 'Carolina_Long_Bay'
+lat = 33.6
+lon = -78.3
+
 # Specify the years you want the data extracted
-year_start = 2019 
-year_end =  2022 # Inclusive
+year_start = 2018 
+year_end =  2021 # Inclusive
 
 # Specify months
 month_start = 1
@@ -66,8 +74,8 @@ def download_ERA5(year_start, year_end, month_start, month_end, sitename, lat, l
              'product_type': 'reanalysis',
              'format': 'grib',
              'variable': [
-                 '100m_u_component_of_wind',
-                 '100m_v_component_of_wind',
+                 '10m_u_component_of_wind',
+                 '10m_v_component_of_wind',
                  'significant_height_of_combined_wind_waves_and_swell',
               ],
              'year': years_str,
